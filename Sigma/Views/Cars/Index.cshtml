@@ -1,0 +1,115 @@
+﻿@model Sigma.Models.TypeCarViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+    <style>
+        .gallery5 {
+            overflow: hidden;
+            width: 500px;
+        }
+
+            .gallery5 .ramka {
+                float: left;
+                margin-right: 10px;
+                margin-bottom: 10px;
+            }
+
+            .gallery5 img {
+                width: 500px;
+                height: 350px;
+                object-fit: cover;
+            }
+    </style>
+    <link href="~/css/site.css" rel="stylesheet" />
+
+<form asp-controller="Cars" asp-action="Index" method="get">
+    <p>
+
+        <select asp-for="Type" asp-items="Model.typesCar">
+            <option value="">All</option>
+        </select>
+
+        Title: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<div class="container">
+    <div class="row">
+
+        @foreach (var item in Model.Cars)
+        {
+        <div class="col-6">
+            <div class="container">
+                
+                <a class="h3" asp-action="Details" asp-route-id="@item.Id"> @Html.DisplayFor(model => item.Manufacturer) @Html.DisplayFor(model => item.Model)</a>
+                <a asp-action="Details" asp-route-id="@item.Id">
+                    <div class="gallery5">
+                        <div class="ramka">
+                            <img class="img-fluid" src="~/Content/img/@item.PhotoWay" alt="" />
+                        </div>
+                        </div>
+                </a>
+
+
+                <hr />
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+
+                            <p class="text-left">
+                                @Html.DisplayNameFor(model => model.Cars[0].Manufacturer)
+                            </p>
+                            <p class="text-left">
+                                @Html.DisplayNameFor(model => model.Cars[0].Model)
+                            </p>
+                            <p class="text-left">
+                                @Html.DisplayNameFor(model => model.Cars[0].EngineCapacity)
+                            </p>
+                            <p class="text-left">
+                                @Html.DisplayNameFor(model => model.Cars[0].TypeOfTransmition)
+                            </p>
+
+                            <p class="text-left">
+                                @Html.DisplayNameFor(model => model.Cars[0].PriceRatio)
+                            </p>
+
+                        </div>
+                        <div class="col">
+                            <p class="col-sm-12 text-right">
+                                @Html.DisplayFor(model => item.Manufacturer)
+                            </p>
+                            <p class="col-sm-12 text-right">
+                                @Html.DisplayFor(model => item.Model)
+                            </p>
+                            <p class="col-sm-12 text-right">
+                                @Html.DisplayFor(model => item.EngineCapacity)
+                            </p>
+                            <p class="col-sm-12 text-right">
+                                @Html.DisplayFor(model => item.TypeOfTransmition)
+                            </p>
+
+                            <p class="col-sm-12 text-right">
+                                @Html.DisplayFor(model => item.PriceRatio) $
+                            </p>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="container">
+                        <p class="text-center">
+                            @Html.DisplayNameFor(model => model.Cars[0].AdditionalCharacteristics)
+                        </p>
+                        <p class="text-body">
+                            @Html.DisplayFor(model => item.AdditionalCharacteristics)
+                        </p>
+                    </div>
+                </div>
+                @*</div>*@
+            </div>
+        </div>
+                }
+           
+
+        </div>
+</div>

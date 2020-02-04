@@ -1,0 +1,34 @@
+﻿@model Sigma.Models.TypeCar
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Add of type</h1>
+
+<h4>Car</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddTypeCar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NumberOfType" class="control-label"></label>
+                <input asp-for="NumberOfType" class="form-control" />
+                <span asp-validation-for="NumberOfType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NameOfType" class="control-label"></label>
+                <input asp-for="NameOfType" class="form-control" />
+                <span asp-validation-for="NameOfType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="TypeCarList">Back to List</a>
+</div>

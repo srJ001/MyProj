@@ -1,0 +1,90 @@
+﻿@model Sigma.Models.TypeCarViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Admin page</h1>
+
+<p>
+    <a asp-action="AddCar">Add car</a>
+</p>
+<form asp-controller="Cars" asp-action="Index" method="get">
+    <p>
+
+        <select asp-for="Type" asp-items="Model.typesCar">
+            <option value="">All</option>
+        </select>
+
+        Title: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars[0].Manufacturer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars[0].Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars[0].EngineCapacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars[0].TypeOfTransmition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars[0].AdditionalCharacteristics)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars[0].PriceRatio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars[0].NumberOfType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars[0].NameOfType)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Cars)
+        {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Manufacturer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EngineCapacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeOfTransmition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdditionalCharacteristics)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PriceRatio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameOfType)
+            </td>
+            <td>
+                <a asp-action="EditCar" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="DeleteCar" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

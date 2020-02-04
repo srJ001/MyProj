@@ -1,0 +1,44 @@
+﻿@model IEnumerable< Sigma.Models.TypeCar>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Admin page</h1>
+
+<h3>
+    Type of cars
+</h3>
+<p>
+    <a asp-action="AddTypeCar">Add type</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameOfType)
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameOfType)
+                </td>
+               
+                <td>
+                    <a asp-action="DeleteTypeCar" asp-route-id="@item.NumberOfType">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

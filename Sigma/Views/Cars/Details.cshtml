@@ -1,0 +1,90 @@
+﻿@model Sigma.Models.Car
+
+@{
+    ViewData["Title"] = "Details";
+    var PhotoPath = "/Content/img/" + Model.PhotoWay;
+}
+@{}
+<style>
+    .but {
+        overflow: hidden;
+        width:  300px;
+        height: 100px;
+    }
+    .t {
+               margin-top:30px;
+               margin-left:auto;
+                margin-right: 10px;
+                margin-bottom: 35px;
+            }
+</style>
+<h1>@Html.DisplayFor(model => model.Manufacturer) @Html.DisplayFor(model => model.Model)</h1>
+<div>
+    <hr />
+    <img class="card-img-top" src="@PhotoPath" alt="@Html.DisplayFor(model => model.PhotoWay)" />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Manufacturer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Manufacturer)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EngineCapacity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EngineCapacity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TypeOfTransmition)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TypeOfTransmition)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AdditionalCharacteristics)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AdditionalCharacteristics)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PriceRatio)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PriceRatio) $
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NameOfType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NameOfType)
+        </dd>
+
+    </dl>
+
+
+
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <a class="but btn btn-outline-secondary" asp-action="CreateOrder" asp-controller="Order">
+                <p class="t">
+                    Order
+                </p>
+            </a>
+        </div>
+        <div class="col-4"></div>
+    </div>
+    </div>
+
+        <div>
+            <a asp-action="Index">Back to list</a>
+        </div>
