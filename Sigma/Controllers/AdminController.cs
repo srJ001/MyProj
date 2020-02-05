@@ -53,10 +53,8 @@ namespace Sigma.Controllers
 
             return View(TypeCarVM);
         }
-        public async Task<IActionResult> TypeCarList()
-        {
-            return View(await _context.TypeCar.ToListAsync());
-        }
+        
+        
         public IActionResult AddTypeCar()
         {
             return View();
@@ -195,6 +193,9 @@ namespace Sigma.Controllers
         {
             return View(await _context.Order.ToListAsync());
         }
-
+        public async Task<IActionResult> TypeCarList()
+        {
+            return View(await _context.TypeCar.ToListAsync());
+        }
     }
 }

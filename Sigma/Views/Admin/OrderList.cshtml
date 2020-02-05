@@ -1,0 +1,76 @@
+﻿@model IEnumerable< Sigma.Models.Order>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Admin page</h1>
+<p>
+    <a asp-action="CarList">Car List</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ManagerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartOfRent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndOfRent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfOrder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PriceToPay)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CarId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ManagerId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartOfRent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndOfRent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfOrder)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PriceToPay)
+                </td>
+              
+            </tr>
+        }
+    </tbody>
+</table>
